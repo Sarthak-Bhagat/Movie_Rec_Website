@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block heads %}
+    <link rel='stylesheet' href="{% static 'display/css/search.css' %}">
+    <title>Hitflix</title>
+{% endblock %}
+
+{% block content %}
+    <a id="top"></a>
+    <div class="col align-self-center6 float-md-end">
+        <a href="http://127.0.0.1:8000"><img id="logo" class="mx-auto d-block" src="{% static 'display/image/logo_small.png' %}" alt="Logo"/></a>
+    </div>
+    <div class="h-100 d-flex justify-content-center align-items-center">
+        <form name="search" action="" method="POST"><br> {% csrf_token %}
+            <label >
+                <input type="search" class="form-control "  name="search">
+            </label>
+            <input type="submit" class="btn btn-primary btn-rounded" name="submit" value="Search">
+        </form>
+    </div>
+    <div>
+    <p style="color: white">{{ search }}</p>
+    </div>
+    <div id="table_container" class="center">
+        <table class="table table-dark table-striped table-hover table-responsive">
+            <thead>
+            <tr>
+                <th>Poster</th>
+                <th>Title</th>
+                <th>IMDB Rating</th>
+                <th>TMDB Rating</th>
+            </tr>
+            {% for i in data %}
+                <tr>
+                    <td id="poster_cell"><img src="{{ i.image_url }}" alt="Poster" id="poster" class="img-thumbnail"></td>
+                    <td id="center_cell"><a href="/result/{{ i.imdb_id }}/">{{ i.title }}</a></td>
+                    <td id="row">{{ i.ratings }}</td>
+                    <td id="row">{{ i.tmdb_rating }}</td>
+                </tr>
+            {%  endfor %}
+            </thead>
+            <tbody class="lister-list"></tbody>
+        </table>
+        <a href="#top" class="btn btn-outline-light">Back to top</a>
+    </div>
+{% endblock %}

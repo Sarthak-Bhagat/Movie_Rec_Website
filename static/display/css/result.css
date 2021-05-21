@@ -1,0 +1,48 @@
+body
+{
+	background-image:url(../image/background1.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	overflow-x: hidden;
+}
+
+.logo
+{
+	width: 250px;
+	margin-top: 18px;
+}
+.header
+{
+	height: 20%;
+}
+
+#Data{
+	padding-left: 0%;
+}
+
+.header-btn
+{
+	text-decoration: none !important;
+	border-radius: 30px;
+	padding: 7px 20px;
+	float: right;
+	color: #fff !important;
+	background: #107afd;
+	font-weight: 600;
+	margin-top: 90px;
+}
+.download-btn
+{
+	border: 1px solid #fff !important;
+	background: transparent !important;
+
+}
+.movie-img
+{
+	position: relative;
+	height: 350px;
+	left: 125%;
+}
+.series img:hover{
+	transform: translateY(-10px);
+}

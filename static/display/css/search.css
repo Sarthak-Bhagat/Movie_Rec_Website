@@ -1,0 +1,56 @@
+body {
+    background-image:url(../image/background1.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+
+div {
+    display:block;
+    margin: auto;
+    text-align:center;
+}
+
+
+#logo{
+    height: 100px;
+    width: auto;
+}
+
+#row{
+    vertical-align: middle;
+    width: 15%;
+}
+
+#center_cell{
+    vertical-align: middle;
+}
+
+#poster_cell{
+    width: 25%;
+}
+
+#poster {
+    height: 100%;
+    margin: 5px;
+    width: auto;
+
+}#table_container{
+     width: 75%;
+ }
+
+.button:hover {
+    color: #2a2a2a;
+    border: 1px solid #bdbdbd;
+}
+
+.search:hover {
+    border:1px solid #aaaaaa;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+input[type=text]::-ms-clear {  display: none; width : 0; height: 0; }
+input[type=text]::-ms-reveal {  display: none; width : 0; height: 0; }

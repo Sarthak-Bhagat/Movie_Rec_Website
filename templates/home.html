@@ -1,0 +1,27 @@
+
+{% extends 'base.html' %}
+<head>
+    {% block heads %}
+        <title>Hitflix</title>
+        {% load static %}
+        <link rel='stylesheet' href="{% static 'display/css/homepage.css' %}">
+    {% endblock %}
+</head>
+
+{% block content %}
+    <header>
+        {% load static %}
+        <img id="bell" src="{% static 'display/image/gear.png' %}" alt="Settings"/>
+    </header>
+    <div>
+        <a href="http://127.0.0.1:8000"><img id="logo" class="mx-auto d-block" src="{% static 'display/image/logo_small.png' %}" alt="Logo"/></a>
+        <form name="search" action="search/" method="POST"><br> {% csrf_token %}
+            <label >
+                <input type="search" class="search" name="search">
+            </label><br>
+            <br>
+            <input type="submit" class="btn btn-primary btn-rounded" name="submit" value="Search">
+            <input type="submit" class="btn btn-primary btn-rounded" name="submit" value="Random">
+        </form>
+    </div>
+{% endblock %}

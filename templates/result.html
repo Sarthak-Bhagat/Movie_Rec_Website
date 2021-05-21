@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{%  block heads %}
+    <title>{{ searched_entry.Title }} on Hitflix</title>
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'display/css/result.css' %}">
+
+{% endblock %}
+
+{% block content %}
+    <div class="container header">
+        <a href="http://127.0.0.1:8000"><img id="logo" class="mx-auto d-block" src="{% static 'display/image/logo_small.png' %}" alt="Logo"/></a>
+    </div>
+    <div>
+
+    </div>
+    <div class="container movie-details">
+        <div class="row row-centered pos" id = 'Data'>
+            <div class="col-md-6 col-centered">
+                <h1 style="color:white;">{{ searched_entry.Title }}</h1>
+                <p style="color:white;">Plot: {{ searched_entry.Plot }}</p>
+                <p style="color:white;">IMDB Rating: {{ searched_entry.Ratings }} with {{ searched_entry.Number_of_Ratings }} ratings</p>
+                <p style="color:white;">TMDB Rating: {{ searched_entry.TMDB_Rating }} with {{ searched_entry.TMDB_Rating_Count }} ratings</p>
+                <p style="color:white;">Date Publised : {{ searched_entry.Date_Published }}</p>
+                {% for i in searched_entry.External_Links %}
+                    <a href="{{ i }}" class="btn btn-outline-light">Watch Now</a>
+                {% endfor %}<br>
+                <a href="https://www.imdb.com/title/{{ searched_entry.IMDB_ID }}" class="btn btn-outline-light">IMDB Page</a>
+                <a href="https://www.themoviedb.org/{{ searched_entry.isMovie }}/{{ searched_entry.TMDB_ID }}" class="btn btn-outline-light">TMDB Page</a>
+
+            </div>
+            <br>
+            <div>
+                <a href="{{ searched_entry.Image_URL }}">
+                    <img src="{{ searched_entry.Image_URL}}" class="img-thumbnail movie-img img-fluid" alt="Poster">
+                </a>
+            </div>
+
+        </div>
+    </div>
+    <div class="container series">
+        <h3>Recommended movies </h3>
+        <div class="row">
+            {% for i,v in recommendations.items %}
+                <div class="col"><a href="/result/{{ v.id }}"><img class="img-thumbnail img-fluid" src="{{ v.image }}" alt="Recommended"></a></div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
